@@ -17,13 +17,9 @@ const slides = [
 	}
 ]
 
-/*Ajout des eventListeners sur les fléches*/
-function displaySlide (slides, img){
-	let img = document.getElementById('.banner-img'); //J'ai supprimé la class banner-image//
-	let text= document.queryselector('p') //J'ai supprimé la balise p//
- }
 
-//Cette fonction afficher le slide//
+
+//fonction afficher le slide//
 let slideIndex = 1;
  showSlides ( slideIndex); //Fonction de base//
 
@@ -54,13 +50,13 @@ let slideIndex = 1;
   }
  
   
-//Cette fonction cacher le slide node.removeChild(child); child est le nœud enfant à retirer du DOM.node est le nœud parent de child.//
+//fonction cacher le slide (node.removeChild(child); child est le nœud enfant à retirer du DOM.node est le nœud parent de child.//
 function hideSlide (slides, img){
 	banner.removeChild(document.queryselector('.banner-img')); //J'ai supprimé la class banner-image//
 	banner.removeChild(document.queryselector('p')) //J'ai supprimé la balise p//
  }
 
- 
+ /*Ajout des eventListeners sur les fléches*/
 
 Let arrowRight = document.querySelector(".arrow_right");
 
