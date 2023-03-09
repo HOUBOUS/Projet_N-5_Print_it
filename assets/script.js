@@ -18,29 +18,55 @@ const slides = [
 ]
 
 /*Ajout des eventListeners sur les fléches*/
-
-//Cette fonction afficher le slide//
- function hideSlide (){
-
+function displaySlide (slides, img){
+	let img = document.getElementById('.banner-img'); //J'ai supprimé la class banner-image//
+	let text= document.queryselector('p') //J'ai supprimé la balise p//
  }
 
+//Cette fonction afficher le slide//
+let slideIndex = 1;
+ showSlides ( slideIndex); //Fonction de base//
+
+ function CurrentSlide (n){
+	showSlides (slideIndex = n);
+  }
+ 
+ function pludSlides(n){
+	showSlides (slideIndex +=n)
+  }
+
+  function showSlides(n){
+	let i;
+	let slides=document.getElementsByClassName('slides');
+	let dots=document.getElementsByClassName('.dots');
+
+	//passer de l'image 4 à l'image 1//
+
+	if (n> slides.length){
+		slideIndex = 1;
+	}
+
+	// Passer de l'image 1 à l'image 4 //
+    if (n<1){
+		slideIndex = slides.length;
+	}
+    
+  }
+ 
+  
 //Cette fonction cacher le slide node.removeChild(child); child est le nœud enfant à retirer du DOM.node est le nœud parent de child.//
 function hideSlide (slides, img){
 	banner.removeChild(document.queryselector('.banner-img')); //J'ai supprimé la class banner-image//
 	banner.removeChild(document.queryselector('p')) //J'ai supprimé la balise p//
  }
 
- function displaySlide (slides, img){
-	let img = document.getElementById('.banner-img'); //J'ai supprimé la class banner-image//
-	let text= document.queryselector('p') //J'ai supprimé la balise p//
- }
-
+ 
 
 Let arrowRight = document.querySelector(".arrow_right");
 
 arrowRight.addEventListener('clik', fonction(){
        hideSlide();
-	   displaySlide()
+	   showSlide()
 
 })
 
@@ -48,6 +74,6 @@ Let arrowLeft = document.querySelector(".arrow_left");
 
 arrowRight.addEventListener('clik', fonction(){
        hideSlide();
-	   displaySlide()
+	   showSlide()
 
 })
