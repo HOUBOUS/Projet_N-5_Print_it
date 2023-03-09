@@ -1,9 +1,13 @@
 const arrowRightElement = document.querySelector(".arrow_right");
 const arrowLeftElement = document.querySelector(".arrow_left");
 const divDotsElement = document.querySelector(".dots");
-const alldot = document.getElementsByClassName("dot");
-var selectedImage= 1;
- 
+const bannerImage =document.querySelector(".banner-img");
+const bannerText =document.querySelector("#banner p");
+const alldot =document.getElementsByClassName("dot");
+let selectedImage=0;
+let selectedText="";
+let slectedsrc="";
+
 
 
 const slides = [
@@ -23,40 +27,51 @@ const slides = [
 		"image":"slide4.png",
 		"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
 	}
-]
+
+];
 
 // Création des Dots//
 
-for(let i=0; i<slides.length; i+1){
-	var dottoadded=document.createElement("span");
-	dottoadded.classList.add("dot");
-	if(i == selectedImage-1){
-		dottoadded.classList.add("dot_selected");
+for (let i = 0; i < slides.length; i++) {
+	let dottoadd= document.createElement("span");
+	dottoadd.classList.add("dot");
+	if(i==selectedImage+1){
+		dottoadd.classList.add("dot_selected");
 	}
-    divDotsElement.appendChild(dottoadded);
-}
+	
+	divDotsElement.appendChild(dottoadd);
+
+  }
  
-  
-//fonction cacher le slide (node.removeChild(child); child est le nœud enfant à retirer du DOM.node est le nœud parent de child.//
-function hideSlide (slides, img){
-	banner.removeChild(document.queryselector('.banner-img')); //J'ai supprimé la class banner-image//
-	banner.removeChild(document.queryselector('p')) //J'ai supprimé la balise p//
- }
+//Changement des images avec les textes corrependants//
+
+  function switchingImageText(){
+
+	bannerImage.src="./assets/images/slideshow/"+slectedsrc; //pour changer l'image j'ai rajouté le chemin des images//
+	bannerText.innerHTML=selectedText;// La propriété innerHtml pour changer le texte existant par le nouveau p qui correspond à l'image//
+}
 
  //*Ajout des eventListeners sur les fléches*//
 
  
 
-arrowRightElement.addEventListener("click", myFunctionRight);
+ arrowRightElement.addEventListener("click", FunctionRight);
 
-    function myFunctionRight() {
-	document.getElementById("").innerHTML = "";
-  }
+ function myFunctionRight() {
+	 
+	 document.getElementById("").innerHTML = "";
 
 
-arrowLeftElement.addEventListener("click", myFunctionLeft);
+   }
+
+
+arrowLeftElement.addEventListener("click", FunctionLeft);
 
 	function myFunctionLeft() {
+		
 		document.getElementById("").innerHTML = "";
+
+
 	  }
        
+	  
