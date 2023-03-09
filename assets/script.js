@@ -1,3 +1,11 @@
+const arrowRightElement = document.querySelector(".arrow_right");
+const arrowLeftElement = document.querySelector(".arrow_left");
+const divDotsElement = document.querySelector(".dots");
+const alldot = document.getElementsByClassName("dot");
+var selectedImage= 1;
+ 
+
+
 const slides = [
 	{
 		"image":"slide1.jpg",
@@ -17,37 +25,16 @@ const slides = [
 	}
 ]
 
+// Création des Dots//
 
-
-//fonction afficher le slide//
-let slideIndex = 1;
- showSlides ( slideIndex); //Fonction de base//
-
- function CurrentSlide (n){
-	showSlides (slideIndex = n);
-  }
- 
- function pludSlides(n){
-	showSlides (slideIndex +=n)
-  }
-
-  function showSlides(n){
-	let i;
-	let slides=document.getElementsByClassName('slides');
-	let dots=document.getElementsByClassName('.dots');
-
-	//passer de l'image 4 à l'image 1//
-
-	if (n> slides.length){
-		slideIndex = 1;
+for(let i=0; i<slides.length; i+1){
+	var dottoadded=document.createElement("span");
+	dottoadded.classList.add("dot");
+	if(i == selectedImage-1){
+		dottoadded.classList.add("dot_selected");
 	}
-
-	// Passer de l'image 1 à l'image 4 //
-    if (n<1){
-		slideIndex = slides.length;
-	}
-    
-  }
+    divDotsElement.appendChild(dottoadded);
+}
  
   
 //fonction cacher le slide (node.removeChild(child); child est le nœud enfant à retirer du DOM.node est le nœud parent de child.//
@@ -56,20 +43,20 @@ function hideSlide (slides, img){
 	banner.removeChild(document.queryselector('p')) //J'ai supprimé la balise p//
  }
 
- /*Ajout des eventListeners sur les fléches*/
+ //*Ajout des eventListeners sur les fléches*//
 
-Let arrowRight = document.querySelector(".arrow_right");
+ 
 
-arrowRight.addEventListener('clik', fonction(){
-       hideSlide();
-	   showSlide()
+arrowRightElement.addEventListener("click", myFunctionRight);
 
-})
+    function myFunctionRight() {
+	document.getElementById("").innerHTML = "";
+  }
 
-Let arrowLeft = document.querySelector(".arrow_left");
 
-arrowRight.addEventListener('clik', fonction(){
-       hideSlide();
-	   showSlide()
+arrowLeftElement.addEventListener("click", myFunctionLeft);
 
-})
+	function myFunctionLeft() {
+		document.getElementById("").innerHTML = "";
+	  }
+       
