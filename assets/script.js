@@ -4,9 +4,9 @@ const divDotsElement = document.querySelector(".dots");
 const bannerImage =document.querySelector(".banner-img");
 const bannerText =document.querySelector("#banner p");
 const alldot =document.getElementsByClassName("dot");
-let selectedImage=0;
-let selectedText="";
-let slectedsrc="";
+let selectedImage = 0;
+let selectedText = "";
+let slectedsrc = "";
 
 
 
@@ -35,13 +35,15 @@ const slides = [
 for (let i = 0; i < slides.length; i++) {
 	let dottoadd= document.createElement("span");
 	dottoadd.classList.add("dot");
-	if(i==selectedImage+1){
+	if (selectedImage === i){
 		dottoadd.classList.add("dot_selected");
-	}
-	
+	  }	
 	divDotsElement.appendChild(dottoadd);
 
   }
+ 
+       
+ 
  
 //Changement des images avec les textes corrependants//
 
@@ -57,7 +59,7 @@ for (let i = 0; i < slides.length; i++) {
 
  arrowRightElement.addEventListener("click", FunctionRight);
 
- function myFunctionRight() {
+ function FunctionRight() {
 	 
 	 document.getElementById("").innerHTML = "";
 
@@ -67,7 +69,7 @@ for (let i = 0; i < slides.length; i++) {
 
 arrowLeftElement.addEventListener("click", FunctionLeft);
 
-	function myFunctionLeft() {
+	function FunctionLeft() {
 		
 		document.getElementById("").innerHTML = "";
 
