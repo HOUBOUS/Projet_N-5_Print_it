@@ -1,20 +1,8 @@
 const arrowRightElement = document.querySelector(".arrow_right");
 const arrowLeftElement = document.querySelector(".arrow_left");
-<<<<<<< HEAD
 const dot = document.querySelector(".dots");
 const banner = document.querySelector ("#banner");
-var position = 0;
-=======
-const banner = document.querySelector ("#banner");
-const divDotsElement = document.querySelector (".dots");
-const bannerImage = document.querySelector (".banner-img");
-const bannerText = document.querySelector ("#banner p");
-const allDot = document.getElementsByClassName (".dot");
-let selectedImage = 0;
-let selectedText = "";
-let slectedSrc = "";
-
->>>>>>> 37584a159230d8d07b9f310c7f9e98b9384ce82b
+let position = 0;
 
 const slides = [
 	{
@@ -35,9 +23,8 @@ const slides = [
 	},	
 ]
 
-// Création des Dots//
+// Configuration and creation  of Dots//
 
-<<<<<<< HEAD
 function nbreOfDots(tab){
     return(tab.length);
 
@@ -45,9 +32,9 @@ function nbreOfDots(tab){
 
 function createDots(DOMelt,tab){
     for(let i=0; i< nbreOfDots(tab);i++){
-        let dottoadd = document.createElement("span");//Création de nombre de span autant que la taille du tableau
-        dottoadd.classList.add("dot");//Ajout de la classe dot
-        DOMelt.appendChild(dottoadd);//Ajout des elements en tant que DOM element
+        let dotToAdd = document.createElement("span");//Création de nombre de span autant que la taille du tableau
+        dotToAdd.classList.add("dot");//Ajout de la classe dot
+        DOMelt.appendChild(dotToAdd);//Ajout des elements en tant que DOM element
 
     }
      
@@ -56,17 +43,15 @@ function createDots(DOMelt,tab){
 createDots(document.querySelector(".dots"),slides);
 
  
-//Changement des images avec les textes corrependants//
+//Creation images and texts //
 
-  function setImage(DOMelt, tabelt){
+  function setImage(DOMelt, tabelt) {
     const image = document.createElement("img");//Création de la balise image
     image.classList.add("banner-img");// Ajout de la classe banner-img dans la balise image
 	image.setAttribute("src", tabelt.image);//Ajout d'un attribut src = slides[0].image pour que la propriété image du premier element du tableau slides
     DOMelt.appendChild(image);// Créer un enfant image à la span au parent #banner
-=======
-function nbrOfDots(tab){
-    return (tab.length)
->>>>>>> 37584a159230d8d07b9f310c7f9e98b9384ce82b
+
+  
 }
    function setText(DOMelt, tabelt) {
      const text = document.createElement("p");// Création de la balise p 
@@ -93,33 +78,27 @@ function nbrOfDots(tab){
     DOMdot.classList.remove("dot_selected");
 
    }
+             //Launch First Slide//
 
-   switchingSlide(banner, dot.children[0],slides,slides[0])
+   switchingSlide(banner, dot.children[0],slides,slides[0]);
 
-<<<<<<< HEAD
- //*Ajout des eventListeners sur les fléches*//
+          //Event Listeners//
 
- 
+    //Event Listener Left//      
 
- arrowRightElement.addEventListener("click", function(){
-    hideSlide(banner, dot.children[position])
-    position = (position == slides.length-1) ? 0 : position+1;
-    switchingSlide(banner, dot[position],slides,slides[position]);
- }
- );
+    arrowLeftElement.addEventListener('click', function(e){
+        hideSlide(banner, dot.children[position]);
+        position = (position == 0) ? position = slides.length-1 : position-1;
+        switchingSlide(banner, dot.children[position], slides, slides[position]);
+    
+    })
 
- 
-arrowLeftElement.addEventListener("click", function(){
-    hideSlide(banner, dot.children[position])
-    position = (position == 0) ? position=slides.length-1 : position-1;
-    switchingSlide(banner, dot[position],slides,slides[position]);
-=======
->>>>>>> 37584a159230d8d07b9f310c7f9e98b9384ce82b
+    //Event Listener Right//  
 
-});
+    arrowRightElement.addEventListener('click', function(e){
+        hideSlide(banner, dot.children[position]);
+        position = (position == slides.length-1) ? 0 : position+1;
+        switchingSlide(banner, dot.children[position], slides, slides[position]);
+    })
 
-<<<<<<< HEAD
-	
-	  
-=======
->>>>>>> 37584a159230d8d07b9f310c7f9e98b9384ce82b
+
