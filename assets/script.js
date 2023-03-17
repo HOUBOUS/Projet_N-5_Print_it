@@ -3,6 +3,7 @@ const arrowLeftElement = document.querySelector(".arrow_left");
 const dot = document.querySelector(".dots");
 const banner = document.querySelector ("#banner");
 let position = 0;
+
 const slides = [
 	{
 		"image":"./assets/images/slideshow/slide1.jpg",
@@ -17,7 +18,7 @@ const slides = [
 		"tagLine":"Grand choix de couleurs <span>de CMJN aux pantones</span>"
 	},
 	{
-		"image":"./assets/images/slideshow/slide4.jpg",
+		"image":"./assets/images/slideshow/slide4.png",
 		"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
 	},	
 ]
