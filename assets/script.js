@@ -1,14 +1,8 @@
 const arrowRightElement = document.querySelector(".arrow_right");
 const arrowLeftElement = document.querySelector(".arrow_left");
-const divDotsElement = document.querySelector(".dots");
-const bannerImage =document.querySelector(".banner-img");
-const bannerText =document.querySelector("#banner p");
-const alldot =document.getElementsByClassName("dot");
-let selectedImage = 0;
-let selectedText = "";
-let slectedsrc = "";
-
-
+const dot = document.querySelector(".dots");
+const banner = document.querySelector ("#banner");
+var position = 0;
 
 const slides = [
 	{
@@ -32,48 +26,78 @@ const slides = [
 
 // Création des Dots//
 
-for (let i = 0; i < slides.length; i++) {
-	let dottoadd= document.createElement("span");
-	dottoadd.classList.add("dot");
-	if (selectedImage === i){
-		dottoadd.classList.add("dot_selected");
-	  }	
-	divDotsElement.appendChild(dottoadd);
+function nbreOfDots(tab){
+    return(tab.length);
 
-  }
- 
-       
- 
+}
+
+function createDots(DOMelt,tab){
+    for(let i=0; i< nbreOfDots(tab);i++){
+        let dottoadd = document.createElement("span");//Création de nombre de span autant que la taille du tableau
+        dottoadd.classList.add("dot");//Ajout de la classe dot
+        DOMelt.appendChild(dottoadd);//Ajout des elements en tant que DOM element
+
+    }
+     
+}
+
+createDots(document.querySelector(".dots"),slides);
+
  
 //Changement des images avec les textes corrependants//
 
-  function switchingImageText(){
-
-	bannerImage.src="./assets/images/slideshow/"+slectedsrc; //pour changer l'image j'ai rajouté le chemin des images//
-	bannerText.innerHTML=selectedText;// La propriété innerHtml pour changer le texte existant par le nouveau p qui correspond à l'image//
+  function setImage(DOMelt, tabelt){
+    const image = document.createElement("img");//Création de la balise image
+    image.classList.add("banner-img");// Ajout de la classe banner-img dans la balise image
+	image.setAttribute("src", tabelt.image);//Ajout d'un attribut src = slides[0].image pour que la propriété image du premier element du tableau slides
+    DOMelt.appendChild(image);// Créer un enfant image à la span au parent #banner
 }
+   function setText(DOMelt, tabelt) {
+     const text = document.createElement("p");// Création de la balise p 
+     text.innerHTML = tabelt.tagLine;//
+     DOMelt.appendChild(text);// Créer un enfant text à la span au parent #banner
+
+   }
+
+   function switchDotSelected(DOMelt){
+    DOMelt.classList.add("dot_selected");//Ajout de la classe dot_selected
+   
+   }
+    
+   function switchingSlide(DOMbanner,DOMdot,tab, tabelt){
+    setImage(DOMbanner, tabelt);
+    setText(DOMbanner, tabelt);
+    switchDotSelected(DOMdot)
+
+   }
+
+   function hideSlide(DOMelt, DOMdot){
+    DOMelt.removeChild(document.querySelector('.banner-img'));
+    DOMelt.removeChild(document.querySelector('p'));
+    DOMdot.classList.remove("dot_selected");
+
+   }
+
+   switchingSlide(banner, dot.children[0],slides,slides[0])
 
  //*Ajout des eventListeners sur les fléches*//
 
  
 
- arrowRightElement.addEventListener("click", FunctionRight);
+ arrowRightElement.addEventListener("click", function(){
+    hideSlide(banner, dot.children[position])
+    position = (position == slides.length-1) ? 0 : position+1;
+    switchingSlide(banner, dot[position],slides,slides[position]);
+ }
+ );
 
- function FunctionRight() {
-	 
-	 document.getElementById("").innerHTML = "";
+ 
+arrowLeftElement.addEventListener("click", function(){
+    hideSlide(banner, dot.children[position])
+    position = (position == 0) ? position=slides.length-1 : position-1;
+    switchingSlide(banner, dot[position],slides,slides[position]);
 
+});
 
-   }
-
-
-arrowLeftElement.addEventListener("click", FunctionLeft);
-
-	function FunctionLeft() {
-		
-		document.getElementById("").innerHTML = "";
-
-
-	  }
-       
+	
 	  
