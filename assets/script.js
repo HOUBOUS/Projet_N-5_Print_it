@@ -1,31 +1,43 @@
 const arrowRightElement = document.querySelector(".arrow_right");
 const arrowLeftElement = document.querySelector(".arrow_left");
+<<<<<<< HEAD
 const dot = document.querySelector(".dots");
 const banner = document.querySelector ("#banner");
 var position = 0;
+=======
+const banner = document.querySelector ("#banner");
+const divDotsElement = document.querySelector (".dots");
+const bannerImage = document.querySelector (".banner-img");
+const bannerText = document.querySelector ("#banner p");
+const allDot = document.getElementsByClassName (".dot");
+let selectedImage = 0;
+let selectedText = "";
+let slectedSrc = "";
+
+>>>>>>> 37584a159230d8d07b9f310c7f9e98b9384ce82b
 
 const slides = [
 	{
-		"image":"slide1.jpg",
+		"image":"./assets/images/slideshow/slide1.jpg",
 		"tagLine":"Impressions tous formats <span>en boutique et en ligne</span>"
 	},
 	{
-		"image":"slide2.jpg",
+		"image":"./assets/images/slideshow/slide2.jpg",
 		"tagLine":"Tirages haute définition grand format <span>pour vos bureaux et events</span>"
 	},
 	{
-		"image":"slide3.jpg",
+		"image":"./assets/images/slideshow/slide3.jpg",
 		"tagLine":"Grand choix de couleurs <span>de CMJN aux pantones</span>"
 	},
 	{
-		"image":"slide4.png",
+		"image":"./assets/images/slideshow/slide4.jpg",
 		"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
-	}
-
-];
+	},	
+]
 
 // Création des Dots//
 
+<<<<<<< HEAD
 function nbreOfDots(tab){
     return(tab.length);
 
@@ -51,6 +63,10 @@ createDots(document.querySelector(".dots"),slides);
     image.classList.add("banner-img");// Ajout de la classe banner-img dans la balise image
 	image.setAttribute("src", tabelt.image);//Ajout d'un attribut src = slides[0].image pour que la propriété image du premier element du tableau slides
     DOMelt.appendChild(image);// Créer un enfant image à la span au parent #banner
+=======
+function nbrOfDots(tab){
+    return (tab.length)
+>>>>>>> 37584a159230d8d07b9f310c7f9e98b9384ce82b
 }
    function setText(DOMelt, tabelt) {
      const text = document.createElement("p");// Création de la balise p 
@@ -80,6 +96,7 @@ createDots(document.querySelector(".dots"),slides);
 
    switchingSlide(banner, dot.children[0],slides,slides[0])
 
+<<<<<<< HEAD
  //*Ajout des eventListeners sur les fléches*//
 
  
@@ -96,8 +113,13 @@ arrowLeftElement.addEventListener("click", function(){
     hideSlide(banner, dot.children[position])
     position = (position == 0) ? position=slides.length-1 : position-1;
     switchingSlide(banner, dot[position],slides,slides[position]);
+=======
+>>>>>>> 37584a159230d8d07b9f310c7f9e98b9384ce82b
 
 });
 
+<<<<<<< HEAD
 	
 	  
+=======
+>>>>>>> 37584a159230d8d07b9f310c7f9e98b9384ce82b
